@@ -1,6 +1,6 @@
 # jest-samples
 
-> My mind-blowing Nuxt.js project
+> My test case project is built on ject.js + React
 
 ## Build Setup
 
