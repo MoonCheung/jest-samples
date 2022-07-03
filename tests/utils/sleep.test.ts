@@ -1,14 +1,14 @@
-import sleep from "utils/sleep";
+import sleep from 'utils/sleep';
 
 describe('sleep', () => {
   it('可以睡眠 1000ms', async () => {
     jest.useFakeTimers();
 
-    const act = async(callback: () => void) => {
+    const act = async (callback: () => void) => {
       await sleep(1000);
       callback();
-    }
- 
+    };
+
     const mockCallback = jest.fn();
 
     const promise = act(mockCallback);
@@ -21,9 +21,9 @@ describe('sleep', () => {
 
     // 执行 callback 内容
     await promise;
-    
+
     // mockCallback 已调用
     expect(mockCallback).toBeCalled();
     expect(mockCallback).toHaveBeenCalledTimes(1);
-  })
-})
+  });
+});

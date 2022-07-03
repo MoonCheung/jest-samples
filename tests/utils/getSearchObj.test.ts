@@ -5,22 +5,18 @@ describe('getSearchObj', () => {
     // 使用全局暴露出来的 jsdom
     window.location.assign('https://www.baidu.com?a=1&b=2');
 
-    expect(window.location.search).toEqual('?a=1&b=2')
+    expect(window.location.search).toEqual('?a=1&b=2');
     expect(getSearchObj()).toEqual({
-      a: "1",
-      b: "2"
-    })
-  })
+      a: '1',
+      b: '2'
+    });
+  });
 
-  it('空参数返回空',() => {
+  it('空参数返回空', () => {
     // 使用全局暴露出来的 jsdom
     window.location.assign('https://www.baidu.com');
 
-    expect(window.location.search).toEqual("");
+    expect(window.location.search).toEqual('');
     expect(getSearchObj()).toEqual({});
-  })
-})
-
-
-
-
+  });
+});

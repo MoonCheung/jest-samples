@@ -1,6 +1,6 @@
-import "jest-location-mock";
+import 'jest-location-mock';
 import '@testing-library/jest-dom';
-import server from "./mockServer/server";
+import server from './mockServer/server';
 
 Object.defineProperty(global, 'localStorage', {
   value: {
@@ -15,15 +15,15 @@ Object.defineProperty(global, 'localStorage', {
       delete this.store[key];
     },
     clear() {
-      this.store = {}
+      this.store = {};
     }
   },
-  configurable: true,
-})
+  configurable: true
+});
 
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
-  value: jest.fn().mockImplementation(query => ({
+  value: jest.fn().mockImplementation((query) => ({
     matches: false,
     media: query,
     onchange: null,
@@ -31,8 +31,8 @@ Object.defineProperty(window, 'matchMedia', {
     removeListener: jest.fn(), // deprecated
     addEventListener: jest.fn(),
     removeEventListener: jest.fn(),
-    dispatchEvent: jest.fn(),
-  })),
+    dispatchEvent: jest.fn()
+  }))
 });
 
 // Mock console
