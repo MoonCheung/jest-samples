@@ -1,4 +1,6 @@
-import * as envUtils from 'utils/env';
+import { getEnv } from 'utils/env';
+
+const envUtils = { getEnv };
 
 describe('getEnv', () => {
   it('开发环境', () => {

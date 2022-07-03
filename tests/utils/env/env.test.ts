@@ -1,13 +1,13 @@
-import * as envUtils from 'utils/env';
+import { env } from 'utils/env';
 
-const originEnv = envUtils.env;
+const originEnv = { env };
 
 describe('env', () => {
   afterEach(() => {
     // envUtils.env = originEnv;
     // 解决方案一：
-    Object.defineProperty(envUtils, 'env', {
-      value: originEnv,
+    Object.defineProperty(originEnv, 'env', {
+      value: originEnv.env,
       writable: true
     });
   });
@@ -15,22 +15,22 @@ describe('env', () => {
   it('开发环境', () => {
     // envUtils.env = 'dev'
     // 解决方案一：
-    Object.defineProperty(envUtils, 'env', {
+    Object.defineProperty(originEnv, 'env', {
       value: 'dev',
       writable: true
     });
 
-    expect(envUtils.env).toEqual('dev');
+    expect(originEnv.env).toEqual('dev');
   });
 
   it('正式环境', () => {
     // envUtils.env = 'prod'
     // 解决方案一：
-    Object.defineProperty(envUtils, 'env', {
+    Object.defineProperty(originEnv, 'env', {
       value: 'prod',
       writable: true
     });
 
-    expect(envUtils.env).toEqual('prod');
+    expect(originEnv.env).toEqual('prod');
   });
 });

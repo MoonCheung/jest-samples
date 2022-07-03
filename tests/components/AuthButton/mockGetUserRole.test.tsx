@@ -1,8 +1,10 @@
 import React from 'react';
-import * as userUtils from 'api/user';
+import { getUserRole } from 'api/user';
 import AuthButton from 'components/AuthButton';
 import { render, screen } from '@testing-library/react';
 import { AxiosResponse } from 'axios';
+
+const userUtils = { getUserRole };
 
 // 更偏向细节，效果并不好
 describe('AuthButton Mock Axios', () => {
@@ -12,7 +14,7 @@ describe('AuthButton Mock Axios', () => {
       data: { userType: 'user' }
     } as AxiosResponse);
 
-    render(<AuthButton>你好</AuthButton>);
+    render(<AuthButton>普通用户你好</AuthButton>);
 
     expect(await screen.findByText('普通用户你好')).toBeInTheDocument();
   });
@@ -23,7 +25,7 @@ describe('AuthButton Mock Axios', () => {
       data: { userType: 'admin' }
     } as AxiosResponse);
 
-    render(<AuthButton>你好</AuthButton>);
+    render(<AuthButton>管理员你好</AuthButton>);
 
     expect(await screen.findByText('管理员你好')).toBeInTheDocument();
   });

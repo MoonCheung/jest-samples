@@ -9,7 +9,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve",
-    "test": "jest --runInBand"
+    "test": "jest"
   },
   "keywords": [],
   "license": "ISC",
